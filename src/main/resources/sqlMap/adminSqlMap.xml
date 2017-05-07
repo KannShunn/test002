@@ -9,6 +9,42 @@
         select count(1)
         from admin_info_klaus
     </select>
+
+    <select id="findAdminById" resultType="com.guanjun.entity.Admin">
+        select *
+        from admin_info_klaus
+        where admin_id = #{id}
+    </select>
+
+
+
+    <select id="findMapById" resultType="java.util.Map">
+        select a.name adminName,c.name adminRole
+        from admin_info_klaus a
+        inner join admin_role_klaus b
+                on a.admin_id = b.admin_id
+        inner join role_info_klaus c
+		on b.role_id = c.role_id
+		where a.admin_id = #{id}
+    </select>
+
+    <insert id="insertAdmin" parameterType="com.guanjun.entity.Admin" keyProperty="admin_id" useGeneratedKeys="true">
+        insert into admin_info_klaus values(
+        #{admin_id},
+        #{admin_code,jdbcType=VARCHAR},
+        #{password,jdbcType=VARCHAR},
+        #{name,jdbcType=VARCHAR},
+        #{telephone,jdbcType=VARCHAR},
+        #{email,jdbcType=VARCHAR},
+        #{enrolldate,jdbcType=TIMESTAMP}
+        )
+    </insert>
+
+    <select id="findAdminByCode" parameterType="java.lang.String" resultType="com.guanjun.entity.Admin">
+        select *
+        from admin_info_klaus
+        where admin_code = #{adminCode}
+    </select>
 </mapper>
 
 

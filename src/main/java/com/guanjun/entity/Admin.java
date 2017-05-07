@@ -72,8 +72,20 @@ public class Admin implements Serializable{
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
-	
-	
 
 
+	@Override
+	public String toString() {
+		return "Admin{" +
+				"admin_id=" + admin_id +
+				", admin_code='" + admin_code + '\'' +
+				", password='" + password + '\'' +
+				", name='" + name + '\'' +
+				", telephone='" + telephone + '\'' +
+				", email='" + email + '\'' +
+				", enrolldate=" + enrolldate +
+				", role_ids=" + role_ids +
+				", roles=" + roles +
+				'}';
+	}
 }
