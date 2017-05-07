@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<!-- 每个实例和实体的访问接口对应一个映射(mapper)文件 -->
+<!-- namespace 的值是DeptMapper接口, 不能错呀! -->
+<mapper namespace="com.guanjun.dao.AdminDao">
+
+    <select id="countAdmin" resultType="java.lang.Integer">
+        select count(1)
+        from admin_info_klaus
+    </select>
+</mapper>
+
+
+
+
+
+
+
